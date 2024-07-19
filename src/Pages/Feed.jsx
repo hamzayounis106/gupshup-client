@@ -8,7 +8,7 @@ function Feed() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await axios.get("https://gupshup-server-3065f391ce53.herokuapp.com/user/CheckAuth");
+        const response = await axios.get("/api/user/CheckAuth");
         if (response.status === 201 || response.status === 200) {
           console.log(response.data);
           setAllowed(true);
@@ -22,7 +22,7 @@ function Feed() {
   useEffect(() => {
     const getPosts = async () => {
       try {
-        const res = await axios.get("https://gupshup-server-3065f391ce53.herokuapp.com/post/getPosts");
+        const res = await axios.get("/api/post/getPosts");
         console.log(res.data);
         setPosts(res.data);
       } catch (error) {
