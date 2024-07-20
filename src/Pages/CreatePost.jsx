@@ -10,7 +10,7 @@ function CreatePost() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await axios.get("/api/user/CheckAuth");
+        const response = await axios.get("https://gupshup-server-3065f391ce53.herokuapp.com/user/CheckAuth");
         if (response.status === 201 || response.status === 200) {
           setAllowed(true);
         }
