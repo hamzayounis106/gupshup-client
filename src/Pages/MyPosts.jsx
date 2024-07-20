@@ -10,7 +10,7 @@ function MyPosts() {
 
   useEffect(() => {
     const checkAllowed = async () => {
-      const response = await axios.get("https://gupshup-server-3065f391ce53.herokuapp.com/user/checkAuth");
+      const response = await axios.get("/api/user/checkAuth");
       if (response.status === 200) {
         setAllowed(true);
         getmyposts();
@@ -20,7 +20,7 @@ function MyPosts() {
   }, []);
 
   const getmyposts = async () => {
-    const response = await axios.get("https://gupshup-server-3065f391ce53.herokuapp.com/post/myposts");
+    const response = await axios.get("/api/post/myposts");
     if (response.status === 200) {
       if (response.data.length === 0) {
         setmyposts(null);

@@ -12,7 +12,7 @@ function Profile() {
   const [totalPosts, setTotalPosts] = useState(0);
   useEffect(() => {
     const getStats = async () => {
-      const res = await axios.get("https://gupshup-server-3065f391ce53.herokuapp.com/user/stats");
+      const res = await axios.get("/api/user/stats");
       setLastDate(res.data.lastDate);
       setTotalPosts(res.data.totalPosts);
       console.log(res.data);
@@ -21,7 +21,7 @@ function Profile() {
   }, []);
   useEffect(() => {
     axios
-      .get("https://gupshup-server-3065f391ce53.herokuapp.com/user/profile")
+      .get("/api/user/profile")
       .then((res) => {
         if (res.status === 200) {
           setProfileData(res.data);

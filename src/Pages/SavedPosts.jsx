@@ -8,7 +8,7 @@ function SavedPosts() {
   const [allowed, setAllowed] = useState(false);
   useEffect(() => {
     const checkAllowed = async () => {
-      const response = await axios.get("https://gupshup-server-3065f391ce53.herokuapp.com/user/checkAuth");
+      const response = await axios.get("/api/user/checkAuth");
       if (response.status === 200) {
         setAllowed(true);
         getSavedPosts();
@@ -17,7 +17,7 @@ function SavedPosts() {
     checkAllowed();
   }, []);
   const getSavedPosts = async () => {
-    const response = await axios.get("https://gupshup-server-3065f391ce53.herokuapp.com/post/savedPosts");
+    const response = await axios.get("/api/post/savedPosts");
     if (response.status === 200) {
       if (response.data.length === 0) {
         setSavedPosts(null);

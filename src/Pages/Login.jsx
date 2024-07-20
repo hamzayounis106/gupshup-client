@@ -17,7 +17,7 @@ function Login() {
   useEffect(() => {
     const CheckingAuth = async () => {
       try {
-        await axios.get("https://gupshup-server-3065f391ce53.herokuapp.com/user/CheckAuth").then((res) => {
+        await axios.get("/api/user/CheckAuth").then((res) => {
           console.log(res);
           if (res.status === 201 || res.status === 200) {
             console.log("User is authenticated");
@@ -39,7 +39,7 @@ function Login() {
     e.preventDefault();
     const data = { email, password };
     try {
-      await axios.post("https://gupshup-server-3065f391ce53.herokuapp.com/auth/login", data).then((res) => {
+      await axios.post("/api/auth/login", data).then((res) => {
         console.log(res.data);
         if ((res.status = 200)) {
           window.location.href = "/profile";

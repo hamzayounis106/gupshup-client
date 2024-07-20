@@ -11,7 +11,7 @@ function DetailedPost() {
     const fetchPostData = async () => {
       if (!postId) return;
       try {
-        const response = await axios.get(`https://gupshup-server-3065f391ce53.herokuapp.com/post/getPost/${postId}`);
+        const response = await axios.get(`/api/post/getPost/${postId}`);
         if (response.status === 200) {
           setPostData(response.data);
           setIsValid(true);
